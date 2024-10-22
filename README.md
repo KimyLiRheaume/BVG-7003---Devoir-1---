@@ -30,6 +30,9 @@ Le script génère les résultats suivants :
 3. Exécuter le script : Copiez et collez le script R suivant dans votre environnement R et exécutez-le : # Charger les bibliothèques nécessaires
 library(ggplot2)
 library(reshape2)
+4. Interpréter les résultats :
+Examinez les fichiers d'image générés pour visualiser les niveaux d'expression des marqueurs REM16 et FT1 entre les sexes.
+Les boxplots vous aideront à comparer facilement les différences d'expression entre les échantillons mâles et femelles.
 
 # Charger les données
 data <- read.csv("2_Data_RNASeq_Cannabis_Sex.csv", row.names = 1)
