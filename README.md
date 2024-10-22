@@ -1,21 +1,23 @@
-# BVG-7003---Devoir-1---Genefinder
-Outil pour identifier des gènes spécifiques à partir de données transcriptomiques
 # BVG-7003 : Devoir 1 - CannabisSexDeterminator
 
 ## Cas d'utilisation
-Cet outil permet d'analyser l'expression des marqueurs géniques spécifiques (REM16 et FT1) pour déterminer le sexe des plantes de cannabis. Il compare les niveaux d'expression entre les échantillons mâles et femelles, fournissant ainsi une méthode fiable pour le sexage des plantes.
+Cet outil est conçu pour analyser les différences d'expression génique des marqueurs spécifiques REM16 et FT1 afin de déterminer le sexe des plantes de cannabis. Il permet aux chercheurs d'identifier rapidement et efficacement le sexe des plantes en comparant les niveaux d'expression de ces marqueurs entre les échantillons mâles et femelles. Ce script peut être utilisé pour le sexage précoce des plants, facilitant ainsi les décisions de culture.
 
 ## Données d'entrée
 Le script nécessite les éléments suivants :
-- **Jeu de données d'expression génique** : un fichier CSV nommé `2_Data_RNASeq_Cannabis_Sex.csv`, contenant des données d'expression pour les gènes d'intérêt (REM16 et FT1). Le fichier doit avoir les gènes en lignes et les échantillons en colonnes.
+- **Jeu de données d'expression génique** : un fichier CSV nommé `2_Data_RNASeq_Cannabis_Sex.csv`, qui doit contenir :
+  - **Format** : Le fichier doit être au format CSV, avec les gènes en lignes et les échantillons en colonnes.
+  - **Colonnes** : Chaque colonne doit représenter un échantillon et inclure les niveaux d'expression des gènes pour chaque échantillon.
+  - **Lignes** : Les lignes doivent contenir les IDs de gènes (par exemple, `LOC115699937` pour REM16 et `LOC115696989` pour FT1).
 
 ## Résultats
 Le script génère les résultats suivants :
 - **Graphiques d'expression génique** :
-  - Boxplot des niveaux d'expression de REM16 par sexe.
-  - Boxplot des niveaux d'expression de FT1 par sexe.
-  - Boxplot combiné des niveaux d'expression de REM16 et FT1 par sexe.
-- Les figures générées seront sauvegardées dans le répertoire courant avec les noms suivants :
+  - **Expression de REM16 par sexe** : Un boxplot montrant les niveaux d'expression du marqueur REM16 pour les échantillons mâles et femelles.
+  - **Expression de FT1 par sexe** : Un boxplot représentant les niveaux d'expression du marqueur FT1 entre les sexes.
+  - **Expression combinée de REM16 et FT1 par sexe** : Un boxplot combiné illustrant les niveaux d'expression des deux marqueurs pour chaque sexe.
+  
+  Les figures générées seront sauvegardées dans le répertoire courant avec les noms suivants :
   - `REM16_expression_by_sex.png`
   - `FT1_expression_by_sex.png`
   - `Combined_expression_by_sex.png`
@@ -27,12 +29,14 @@ Le script génère les résultats suivants :
    ```r
    install.packages(c("ggplot2", "reshape2"))
 2. Charger les données : Préparez votre fichier CSV (2_Data_RNASeq_Cannabis_Sex.csv) et placez-le dans le même répertoire que le script.
-3. Exécuter le script : Copiez et collez le script R suivant dans votre environnement R et exécutez-le : # Charger les bibliothèques nécessaires
-library(ggplot2)
-library(reshape2)
+3. Exécuter le script : Copiez et collez le script R suivant dans votre environnement R et exécutez-le.
 4. Interpréter les résultats :
 Examinez les fichiers d'image générés pour visualiser les niveaux d'expression des marqueurs REM16 et FT1 entre les sexes.
 Les boxplots vous aideront à comparer facilement les différences d'expression entre les échantillons mâles et femelles.
+
+# Charger les bibliothèques nécessaires
+library(ggplot2)
+library(reshape2)
 
 # Charger les données
 data <- read.csv("2_Data_RNASeq_Cannabis_Sex.csv", row.names = 1)
@@ -68,5 +72,3 @@ ggplot(data_melted, aes(x = Sex, y = value, fill = variable)) +
   ggtitle("Expression combinée de REM16 et FT1 par sexe") +
   theme_minimal()
 ggsave("Combined_expression_by_sex.png")
-
-
