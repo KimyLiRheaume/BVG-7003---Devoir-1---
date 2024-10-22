@@ -69,6 +69,4 @@ ggplot(data_melted, aes(x = Sex, y = value, fill = variable)) +
   theme_minimal()
 ggsave("Combined_expression_by_sex.png")
 
-4. Interpréter les résultats :
-Examinez les fichiers d'image générés pour visualiser les niveaux d'expression des marqueurs REM16 et FT1 entre les sexes.
-Les boxplots vous aideront à comparer facilement les différences d'expression entre les échantillons mâles et femelles.
+
