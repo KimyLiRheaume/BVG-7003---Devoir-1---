@@ -29,7 +29,11 @@ Le script génère les résultats suivants :
    ```r
    install.packages(c("ggplot2", "reshape2"))
 2. Charger les données : Préparez votre fichier CSV (par exemple, mon_data.csv) et placez-le dans le même répertoire que le script. Assurez-vous que le fichier contient les bons IDs de gènes.
-Exécuter le script : Copiez et collez le script R suivant dans votre environnement R et exécutez-le :
+3. Exécuter le script : Copiez et collez le script R suivant dans votre environnement R et exécutez-le.
+4. Interpréter les résultats :
+Examinez les fichiers d'image générés pour visualiser les niveaux d'expression des marqueurs REM16 et FT1 entre les sexes.
+Les boxplots vous aideront à comparer facilement les différences d'expression entre les échantillons mâles et femelles.
+
 # Charger les bibliothèques nécessaires
 library(ggplot2)
 library(reshape2)
@@ -69,6 +73,4 @@ ggplot(data_melted, aes(x = Sex, y = value, fill = variable)) +
   theme_minimal()
 ggsave("Combined_expression_by_sex.png")
 
-4. Interpréter les résultats :
-Examinez les fichiers d'image générés pour visualiser les niveaux d'expression des marqueurs REM16 et FT1 entre les sexes.
-Les boxplots vous aideront à comparer facilement les différences d'expression entre les échantillons mâles et femelles.
+
