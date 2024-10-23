@@ -1,0 +1,226 @@
+---
+title: "BVG_7003_Devoir1"
+author: "Kimy-Li"
+date: "2024-10-22"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Introduction
+
+Ce document présente un pipeline d'analyse pour déterminer le sexe des
+plantes de cannabis à partir des données d'expression génique. Les
+marqueurs d'intérêt sont REM16 et FT1. **Veuillez charger votre fichier
+de données ; ce qui suit est un exemple de ce que vous pourriez voir.**
+
+## Charger les bibliothèques nécessaires
+
+Nous commencerons par charger les bibliothèques R nécessaires pour
+l'analyse et la visualisation des données.
+
+```{r setup, include=TRUE}
+# Charger les bibliothèques nécessaires
+library(ggplot2)    # Pour la création de graphiques
+library(reshape2)   # Pour la manipulation de données
+library(ggpubr)     # Pour un meilleur style de graphique
+library(knitr)      # Pour des tableaux bien formatés
+library(kableExtra) # Pour embellir des tableaux
+```
+
+Charger les données
+
+Nous allons maintenant charger notre jeu de données. Assurez-vous que
+votre fichier CSV est dans le bon format et placé dans le répertoire de
+travail.
+
+```{r}
+# Charger les données à partir d'un fichier CSV
+data <- read.csv("/Users/kimy/BVG_7003_Defi/2024_oLLMpics/Fichiers_Files/2_Data_RNASeq_Cannabis_Sex.csv", row.names = 1)
+
+# Vérifier la structure et les noms des colonnes
+str(data)            # Afficher la structure du DataFrame
+print(names(data))   # Afficher les noms des colonnes
+
+
+# Vérifier les premières lignes des données
+head(data, n = 3)          # Afficher les trois premières lignes
+
+# Vérifier si les gènes REM16 et FT1 existent dans les données
+if (!"LOC115699937" %in% rownames(data) || !"LOC115696989" %in% rownames(data)) {
+  stop("Les lignes pour REM16 ou FT1 n'existent pas dans le jeu de données.")
+}
+```
+
+Extraire les données d'expression pour les marqueurs
+
+Nous extrayons les données d'expression pour les marqueurs REM16 et FT1.
+
+```{r}
+# Extraire les données d'expression pour REM16 et FT1
+rem16_data <- data["LOC115699937", ]  # Données d'expression pour REM16
+ft1_data <- data["LOC115696989", ]     # Données d'expression pour FT1
+
+# Créer un DataFrame pour les graphiques
+expression_data <- data.frame(
+  Sample = colnames(data),          # Noms des échantillons
+  REM16 = as.numeric(rem16_data),   # Convertir REM16 en numérique
+  FT1 = as.numeric(ft1_data),       # Convertir FT1 en numérique
+  Sex = ifelse(grepl("XX", colnames(data)), "Female", "Male")  # Déterminer le sexe basé sur le nom de l'échantillon
+)
+
+# Afficher les premières lignes du DataFrame des expressions
+head(expression_data)
+str(expression_data)
+# Vérifiez les valeurs manquantes
+sum(is.na(expression_data$REM16))  # Vérifier les valeurs manquantes pour REM16
+sum(is.na(expression_data$FT1))     # Vérifier les valeurs manquantes pour FT1
+
+
+```
+## Statistiques Résumées
+
+```{r summary-stats, echo=FALSE}
+# Essayer d'exécuter seulement la partie de calcul
+summary_stats <- expression_data %>%
+  group_by(Sex) %>%
+  summarise(
+    Mean_REM16 = mean(REM16, na.rm = TRUE),
+    SD_REM16 = sd(REM16, na.rm = TRUE),
+    Mean_FT1 = mean(FT1, na.rm = TRUE),
+    SD_FT1 = sd(FT1, na.rm = TRUE)
+  )
+
+# Afficher le tableau pour vérifier
+print(summary_stats)
+
+```
+
+
+Visualisation des résultats
+
+Nous allons maintenant créer des graphiques pour visualiser les niveaux
+d'expression de REM16 et FT1 en fonction du sexe.
+
+Graphique 1 : Expression de REM16 par sexe
+
+```{r}
+# Créer un boxplot pour visualiser l'expression de REM16 par sexe
+ggplot(expression_data, aes(x = Sex, y = REM16, fill = Sex)) +
+  geom_boxplot(outlier.shape = NA, alpha = 0.7) +  # Cacher les outliers de la boxplot
+  geom_jitter(width = 0.2, size = 2, color = "black", alpha = 0.5) +  # Ajouter des points de données
+  labs(title = "Expression de REM16 par sexe",  
+       x = "Sexe",                              
+       y = "Expression de REM16") +            
+  theme_classic(base_size = 14) +              
+  scale_fill_manual(values = c("Male" = "blue", "Female" = "pink")) +  # Inverser les couleurs
+  theme(legend.position = "none",               
+        plot.title = element_text(hjust = 0.5),  
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold")) 
+
+# Sauvegarder le graphique dans un fichier PNG
+ggsave("REM16_expression_by_sex.png")
+```
+
+Graphique 2 : Expression de FT1 par sexe
+
+```{r}
+# Créer un boxplot pour visualiser l'expression de FT1 par sexe
+ggplot(expression_data, aes(x = Sex, y = FT1, fill = Sex)) +
+  geom_boxplot(outlier.shape = NA, alpha = 0.7) +  # Cacher les outliers de la boxplot
+  geom_jitter(width = 0.2, size = 2, color = "black", alpha = 0.5) +  # Ajouter des points de données
+  labs(title = "Expression de FT1 par sexe",  
+       x = "Sexe",                              
+       y = "Expression de FT1") +            
+  theme_classic(base_size = 14) +              
+  scale_fill_manual(values = c("Male" = "blue", "Female" = "pink")) +  # Inverser les couleurs
+  theme(legend.position = "none",               
+        plot.title = element_text(hjust = 0.5),  
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold")) 
+
+# Sauvegarder le graphique dans un fichier PNG
+ggsave("FT1_expression_by_sex.png")
+```
+
+Graphique 3 : Expression combinée de REM16 et FT1 par sexe
+
+```{r}
+# Réorganiser les données pour un graphique combiné
+data_melted <- melt(expression_data, id.vars = c("Sample", "Sex"), measure.vars = c("REM16", "FT1"))
+
+# Créer un boxplot combiné pour visualiser l'expression de REM16 et FT1 par sexe
+ggplot(data_melted, aes(x = Sex, y = value, fill = variable)) +
+  geom_boxplot(outlier.shape = NA, alpha = 0.7) +  # Cacher les outliers de la boxplot
+  geom_jitter(width = 0.2, size = 2, color = "black", alpha = 0.5) +  # Ajouter des points de données
+  labs(title = "Expression combinée de REM16 et FT1 par sexe",  
+       x = "Sexe",                              
+       y = "Expression") +            
+  theme_classic(base_size = 14) +              
+  scale_fill_manual(values = c("REM16" = "blue", "FT1" = "pink")) +  # Inverser les couleurs
+  theme(legend.position = "none",               
+        plot.title = element_text(hjust = 0.5),  
+        axis.title.x = element_text(face = "bold"), 
+        axis.title.y = element_text(face = "bold")) 
+
+# Sauvegarder le graphique dans un fichier PNG
+ggsave("Combined_expression_by_sex.png")
+```
+
+Test de graphique dynamique
+```{r}
+# Installer le package plotly si ce n'est pas déjà fait
+# install.packages("plotly")
+
+# Charger les bibliothèques nécessaires
+library(plotly)
+
+# Réorganiser les données pour un graphique combiné
+data_melted <- melt(expression_data, id.vars = c("Sample", "Sex"), measure.vars = c("REM16", "FT1"))
+
+# Créer un boxplot dynamique
+p <- plot_ly(data = data_melted, 
+              x = ~Sex, 
+              y = ~value, 
+              color = ~variable, 
+              type = "box", 
+              boxpoints = "all",  # Affiche tous les points
+              jitter = 0.3,       # Ajoute un peu de désordre pour éviter le chevauchement
+              pointpos = 0)       # Position des points par rapport à la boîte
+
+# Ajouter des titres et des annotations
+p <- p %>%
+  layout(title = "Expression combinée de REM16 et FT1 par sexe",
+         xaxis = list(title = "Sexe"),
+         yaxis = list(title = "Expression"),
+         showlegend = TRUE)
+
+# Afficher le graphique
+p
+```
+
+
+Interpréter les résultats
+
+Examinez les fichiers d'image générés (REM16_expression_by_sex.png,
+FT1_expression_by_sex.png, Combined_expression_by_sex.png) pour
+visualiser les niveaux d'expression des marqueurs REM16 et FT1 entre les
+sexes. Les boxplots vous aideront à comparer facilement les différences
+d'expression entre les échantillons mâles et femelles.
+
+
+Conclusion
+
+Ce pipeline fournit un moyen efficace de déterminer le sexe des plantes
+de cannabis à partir des données d'expression génique. N'oubliez pas de
+modifier le chemin du fichier de données en fonction de votre propre
+fichier avant d'exécuter le script.
+
+Instructions pour utiliser le script
+
+Enregistrez le fichier sous le nom CannabisSexDeterminator.Rmd. Ouvrez
+RStudio ou tout autre environnement prenant en charge RMarkdown. Chargez
+le fichier RMarkdown et exécutez chaque bloc de code pour reproduire
+l'analyse.
