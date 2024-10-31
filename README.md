@@ -1,4 +1,4 @@
-# BVG-7003 : Devoir 1 - CannabisSexDeterminator
+# BVG-7003 : Devoir 1 - CannaGenix
 
 ## Cas d'utilisation
 Cet outil interactif est conçu pour analyser les différences d'expression génique des marqueurs spécifiques REM16 et FT1 afin de déterminer le sexe des plantes de cannabis. Grâce à une interface conviviale, les chercheurs peuvent identifier rapidement et efficacement le sexe des plantes en comparant les niveaux d'expression de ces marqueurs entre les échantillons mâles et femelles. 
