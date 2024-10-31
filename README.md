@@ -14,6 +14,7 @@ L'application nécessite les éléments suivants :
 
 ## Résultats
 L'application génère les résultats suivants :
+
 -**Un tableau interactif** : présentant la structure des données
 - **Graphiques d'expression génique** :
   - **Expression de REM16 par sexe** : Un boxplot montrant les niveaux d'expression du marqueur REM16 pour les échantillons mâles et femelles.
