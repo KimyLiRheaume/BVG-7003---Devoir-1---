@@ -13,9 +13,9 @@ L'application nécessite les éléments suivants :
   - **Lignes** : Les lignes doivent contenir les IDs de gènes (par exemple, `LOC115699937` pour REM16 et `LOC115696989` pour FT1). Les utilisateurs doivent s'assurer que les IDs de gènes dans leur fichier correspondent à ceux utilisés dans l'application.
 
 ## Résultats
-L'application génère les résultats suivants :
+L'application génère les résultats interactifs suivants :
 
--**Un tableau interactif** : présentant la structure des données
+-**Un tableau f** : présentant la structure des données
 - **Graphiques d'expression génique** :
   - **Expression de REM16 par sexe** : Un boxplot montrant les niveaux d'expression du marqueur REM16 pour les échantillons mâles et femelles.
   - **Expression de FT1 par sexe** : Un boxplot représentant les niveaux d'expression du marqueur FT1 entre les sexes.
