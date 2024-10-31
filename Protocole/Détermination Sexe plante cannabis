@@ -1,0 +1,22 @@
+Protocole de Détermination du Sexe des Plantes de Cannabis
+1.	Collecte des Échantillons :
+o	Prélevez des échantillons de feuilles de jeunes plants de cannabis (2-3 semaines après germination).
+o	Placez les échantillons dans des tubes Eppendorf et conservez-les à -80°C jusqu’à l’extraction de l’ARN.
+2.	Extraction de l’ARN :
+o	Utilisez un kit d’extraction d’ARN commercial pour isoler l’ARN total des échantillons de feuilles.
+o	Quantifiez et évaluez la qualité de l’ARN extrait à l’aide d’un spectrophotomètre et d’un gel d’électrophorèse.
+3.	Synthèse de l’ADNc :
+o	Convertissez l’ARN en ADN complémentaire (ADNc) en utilisant une transcriptase inverse et des amorces spécifiques.
+4.	PCR en Temps Réel (qPCR) :
+o	Concevez des amorces spécifiques pour le marqueur REM16.
+o	Préparez des réactions de qPCR en utilisant l’ADNc comme matrice.
+o	Effectuez la qPCR et analysez les données pour détecter l’expression du marqueur REM16.
+5.	Analyse des Résultats obtenus :
+o	Comparez les niveaux d’expression du marqueur REM16  entre les échantillons mâles et femelles.
+o	Déterminez le sexe des plantes en fonction des profils d’expression des marqueurs.
+6.	Automatisation :
+o	Utilisez des robots de pipetage pour l’extraction de l’ARN et la préparation des réactions de pcr.
+o	Intégrez un système de gestion des données pour suivre et analyser les résultats en temps réel.
+7.	Optimisation :
+o	Standardisez les protocoles pour minimiser les variations entre les échantillons.
+o	Effectuez des tests de validation pour assurer la précision et la reproductibilité de la méthode.
