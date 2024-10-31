@@ -20,6 +20,9 @@ L'application génère les résultats suivants :
   - **Expression combinée de REM16 et FT1 par sexe** : Un boxplot combiné illustrant les niveaux d'expression des deux marqueurs pour chaque sexe.
   
   Les figures générées peuvent être téléchargées en format HTML.
+  
+## Protocole pour la Détermination du Sexe
+Un protocole détaillé pour la détermination du sexe des plantes de cannabis est fourni avec ce projet. Ce protocole décrit les étapes utilisées pour extraire l'ARN et analyser les niveaux d'expression des marqueurs géniques REM16 et FT1.
 
 ## Instructions
 1. **Charger l'application :** Ouvrez le fichier RMarkdown dans RStudio.
