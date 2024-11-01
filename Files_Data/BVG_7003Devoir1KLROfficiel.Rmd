@@ -39,7 +39,7 @@ library(htmlwidgets)
 library(plotly)
 library(DT)
 library(shinythemes)
-library(readxl)
+
 ```
 
 ## Interface Utilisateur
