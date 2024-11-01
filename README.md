@@ -27,7 +27,7 @@ L'application génère les résultats interactifs suivants :
 Un protocole détaillé pour la détermination du sexe des plantes de cannabis est fourni avec ce projet. Ce protocole décrit les étapes utilisées pour extraire l'ARN et analyser les niveaux d'expression des marqueurs géniques REM16 et FT1.
 
 ## Instructions
-1. **Charger l'application :** Ouvrez le fichier RMarkdown dans RStudio.
+1. **Charger l'application :** Ouvrez le fichier RMarkdown dans RStudio présent dans le répertoire appelé "files_data".
 2. **Exécuter l'application :** Knit le Document :** Cliquez sur "Knit" pour lancer l'interface Shiny.
 3. **Charger des données :** Glissez-déposez votre fichier CSV ou cliquez sur "Charger le jeu de données par défaut" pour utiliser un fichier préétabli.
 4. **Générer des graphiques :** Cliquez sur "Générer Graphiques" pour visualiser les résultats.
