@@ -15,7 +15,7 @@ L'application nécessite les éléments suivants :
 ## Résultats
 L'application génère les résultats interactifs suivants :
 
--**Un tableau** : présentant la structure des données
+-**Un tableau** : présentant le nom des échantillons, le niveau d'expression du marqueur REM16 et le sexe de l'échantillon.
 - **Graphiques d'expression génique** :
   - **Expression de REM16 par sexe** : Un boxplot montrant les niveaux d'expression du marqueur REM16 pour les échantillons mâles et femelles.
   - **Expression de FT1 par sexe** : Un boxplot représentant les niveaux d'expression du marqueur FT1 entre les sexes.
@@ -27,7 +27,7 @@ L'application génère les résultats interactifs suivants :
 Un protocole détaillé pour la détermination du sexe des plantes de cannabis est fourni avec ce projet. Ce protocole décrit les étapes utilisées pour extraire l'ARN et analyser les niveaux d'expression des marqueurs géniques REM16 et FT1.
 
 ## Instructions
-1. **Charger l'application :** Ouvrez le fichier RMarkdown dans RStudio présent dans le répertoire appelé "files_data".
+1. **Charger l'application :** Ouvrez le fichier "20241104BVG_7003_Devoir1KLR" RMarkdown dans RStudio présent dans le répertoire appelé "files_data".
 2. **Exécuter l'application :** Knit le Document :** Cliquez sur "Knit" pour lancer l'interface Shiny.
 3. **Charger des données :** Glissez-déposez votre fichier CSV ou cliquez sur "Charger le jeu de données par défaut" pour utiliser un fichier préétabli.
 4. **Générer des graphiques :** Cliquez sur "Générer Graphiques" pour visualiser les résultats.
@@ -37,7 +37,12 @@ Un protocole détaillé pour la détermination du sexe des plantes de cannabis e
 Assurez-vous d'avoir installé les bibliothèques R suivantes :
 
 ```r
-install.packages(c("shiny", "ggplot2", "reshape2", "ggpubr", "knitr", "kableExtra", "tidyverse", "htmlwidgets", "plotly", "DT"))
+install.packages(c("shiny", "shinythemes", "ggplot2", "reshape2", "ggpubr", "knitr", "kableExtra", "tidyverse", "htmlwidgets", "plotly", "DT"))
+
+## Contenu des documents de ce GitHub :
+-Tableaux : Tableau de résultats attendus obtenus à partir du jeu de données par défaut
+-Files_Data : Jeu de données par défaut en format zip, le script permettant d'ouvrir l'application,
+-Graphiques : Graphique 1 : Expression du marqueur de REM16, Graphique 2 : Expression du marqueur de FT1, Graphique 3 : Combiné de l'expresion de REM16 et FT1
 
 
 
