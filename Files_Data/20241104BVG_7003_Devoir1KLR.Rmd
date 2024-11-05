@@ -249,9 +249,12 @@ shinyApp(ui = ui, server = server)
 ```
 ___
 ## Interpréter les résultats
--Le tableau de résultats vous indiquera si vos échantillons sont des femelles ou des mâles selon le niveau d'expression de REM16
+
+-Le tableau de résultats vous indiquera si vos échantillons sont des femelles ou des mâles selon le niveau d'expression de REM16. Les niveaux d'expression de FT1 ne sont pas assez différents pour permettre la détermination du sexe.
+
 -Examinez les fichiers d'image générés (REM16_expression_by_sex., FT1_expression_by_sex., Combined_expression_by_sex.) pour visualiser les niveaux d'expression des marqueurs REM16 et FT1 entre les sexes. Les boxplots vous aideront à comparer facilement les différences d'expression entre les échantillons mâles et femelles.
 ___
+
 ## Conclusion
 
 Ce pipeline fournit un moyen efficace de déterminer le sexe des plantes de cannabis à partir des données d'expression génique. 
