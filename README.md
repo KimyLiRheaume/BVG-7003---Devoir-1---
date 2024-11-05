@@ -38,6 +38,7 @@ Assurez-vous d'avoir installé les bibliothèques R suivantes :
 
 ```r
 install.packages(c("shiny", "shinythemes", "ggplot2", "reshape2", "ggpubr", "knitr", "kableExtra", "tidyverse", "htmlwidgets", "plotly", "DT"))
+```
 
 ## Contenu des documents de ce GitHub :
 -Tableaux : Tableau de résultats attendus obtenus à partir du jeu de données par défaut
