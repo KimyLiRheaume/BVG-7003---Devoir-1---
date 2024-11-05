@@ -15,7 +15,7 @@ L'application nécessite les éléments suivants :
 ## Résultats
 L'application génère les résultats interactifs suivants :
 
--**Un tableau** : présentant le nom des échantillons, le niveau d'expression du marqueur REM16 et le sexe de l'échantillon.
+-**Un tableau** : présentant le nom des échantillons, le niveau d'expression du marqueur REM16 et de FT1 et le sexe de l'échantillon.
 - **Graphiques d'expression génique** :
   - **Expression de REM16 par sexe** : Un boxplot montrant les niveaux d'expression du marqueur REM16 pour les échantillons mâles et femelles.
   - **Expression de FT1 par sexe** : Un boxplot représentant les niveaux d'expression du marqueur FT1 entre les sexes.
