@@ -42,13 +42,13 @@ install.packages(c("shiny", "shinythemes", "ggplot2", "reshape2", "ggpubr", "kni
 
 ## Contenu des documents de ce GitHub :
 
-- **Tableaux** : Tableau de résultats attendus obtenus à partir du jeu de données par défaut
+- **Tableaux** : Tableau de résultats attendus obtenus à partir du jeu de données par défaut en format HTML
 
 - **Files_Data** : Jeu de données par défaut en format zip et le script permettant d'ouvrir l'application
 
-- **Graphiques générés à partir du jeu de données par défaut** : Graphique 1 : Expression du marqueur de REM16, Graphique 2 : Expression du marqueur de FT1, Graphique 3 : Combiné de l'expresion de REM16 et FT1
+- **Graphiques générés à partir du jeu de données par défaut sous format HTML** : Graphique 1 : Expression du marqueur de REM16, Graphique 2 : Expression du marqueur de FT1, Graphique 3 : Combiné de l'expresion de REM16 et FT1
   
-- **Protocole** : Protocole de détermination du sexe des plantes de cannabis
+- **Protocole** : Protocole de détermination du sexe des plantes de cannabis sous format Rmarkdown
 
 
 
