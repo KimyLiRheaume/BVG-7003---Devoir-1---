@@ -48,7 +48,7 @@ install.packages(c("shiny", "shinythemes", "ggplot2", "reshape2", "ggpubr", "kni
 
 - **Graphiques générés à partir du jeu de données par défaut sous format HTML** : Graphique 1 : Expression du marqueur de REM16, Graphique 2 : Expression du marqueur de FT1, Graphique 3 : Combiné de l'expresion de REM16 et FT1
   
-- **Protocole** : Protocole de détermination du sexe des plantes de cannabis sous format Rmarkdown
+- **Protocole** : Protocole de détermination du sexe des plantes de cannabis sous format RMarkdown
 
 
 
